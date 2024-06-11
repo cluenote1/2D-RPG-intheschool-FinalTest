@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
         {
             if (gameObject.tag == "Coin")
             {
-                GameManager.Instance.Coin += 10;
+                GameManager.Instance.IncrementCoin(1);
                 Debug.Log("Player Coin : " + GameManager.Instance.Coin);
                 Destroy(gameObject);
             }
@@ -32,5 +32,4 @@ public class Item : MonoBehaviour
             }
         }
     }
-    
 }

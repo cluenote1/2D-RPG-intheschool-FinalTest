@@ -4,7 +4,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
     public Define.Player SelectedPlayer;
     public string UserID;
 
@@ -34,12 +33,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UserID = PlayerPrefs.GetString("ID");
-        
+
         uiManager = FindObjectOfType<UIManager>();
         if (uiManager != null)
         {
-            
             // 시작 시 UI 초기화
+            uiManager.InitializeUI();
             uiManager.UpdateCoinText(Coin);
         }
     }
@@ -58,17 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 코인 감소 메서드 추가
-    public void DecrementCoin(int amount)
-    {
-        Coin -= amount; // 코인 감소
-        Debug.Log("Current Coin: " + Coin);
 
-        if (uiManager != null)
-        {
-            // UI 업데이트
-            uiManager.UpdateCoinText(Coin);
-        }
-    }
 
     public void DecrementMonsterCount()
     {
