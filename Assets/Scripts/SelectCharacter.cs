@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,9 @@ public class SelectCharacter : MonoBehaviour
     public GameObject GameStart;
     public Text GameCountTxt;
     private bool isPlayButtonClicked = false;
-    private float gameCount = 1f;
+    private float gameCount = 3f;
 
-    public static string CharacterName;
+    //public static string CharacterName;
 
     private void Update()
     {
@@ -41,12 +42,13 @@ public class SelectCharacter : MonoBehaviour
     {
         GameStart.SetActive(true);
         isPlayButtonClicked = true;
+        Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), Characters[charIndex].name);
+        GameManager.Instance.SelectedPlayer = player;
         Debug.Log("charIndex : " + charIndex);
         Debug.Log("Characters[charIndex] : " + Characters[charIndex]);
         Debug.Log("GameManager.Instance : " + GameManager.Instance);
-        Debug.Log("GameManager.Instance.CharacterName : " + GameManager.Instance.CharacterName);
-        GameManager.Instance.CharacterName = Characters[charIndex].name;
-        //CharacterName = Characters[charIndex].name
+        Debug.Log("GameManager.Instance.CharacterName : " + GameManager.Instance.SelectedPlayer.ToString());
+        //CharacterName = Characters[charIndex].name;
     }
     private void Start()
     {

@@ -63,7 +63,7 @@ public class PlayerUI : MonoBehaviour
         }
 
         // 몬스터 카운트 업데이트
-        int count = GameManager.monsterCount;
+        int count = GameManager.Instance.monsterCount;
         monsterCountText.text = " : " + count.ToString();
         Debug.Log("Monster Count Updated: " + count);
 

@@ -1103,7 +1103,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b879d878b0b6c5143b5c7f7b38e262c5, type: 3}
+    m_Font: {fileID: 12800000, guid: dfb364c1c323dc9448d3011afb2c9765, type: 3}
     m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
@@ -1141,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &782643841
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3766,14 +3766,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71463a9cd72d5b6489b000ab8dd99aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: 
+  SelectedPlayer: 0
   UserID: 
   PlayerHP: 100
   PlayerExp: 1
   SpeedUp: 0
   Coin: 0
   didguswns: 0
-  initialMonsterCount: 4
+  monsterCount: 0
   remainingMonsterCount: 0
 --- !u!1 &1379030884
 GameObject:

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3068420078899311755}
-  - component: {fileID: 5411492644596112978}
   - component: {fileID: 1324683883228662354}
   - component: {fileID: 3152848091157809478}
   - component: {fileID: 7754232398935380851}
+  - component: {fileID: 7989081499127291529}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -35,22 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5411492644596112978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199351897572679159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba901f7a6f9b984d8042039a02fa3d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MonsterHP: 30
-  MonsterDamage: 2
-  MonsterExp: 3
-  MoveSpeed: 3
 --- !u!212 &1324683883228662354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02508524, y: 0.0062713698}
+  m_Offset: {x: 0.025085203, y: -0.011145622}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,5 +151,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4589622, y: 0.35862118}
+  m_Size: {x: 0.4462952, y: 0.36178786}
   m_EdgeRadius: 0
+--- !u!114 &7989081499127291529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199351897572679159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba901f7a6f9b984d8042039a02fa3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterHP: 30
+  MonsterDamage: 2
+  MonsterExp: 3
+  MoveSpeed: 3
+  ItemObj:
+  - {fileID: 2321198026221563031, guid: fc245e1cd79010e4b8d30c6ac4446eab, type: 3}
+  - {fileID: 1480152894209627131, guid: 7b78a00b8105dd647837ac875b51e050, type: 3}
+  - {fileID: 8613214520712655190, guid: 08859d9acdc60644fa797b0ca371768a, type: 3}
+  - {fileID: 4024764563112735484, guid: e38b6b6717843de49a1c0b97a9b25691, type: 3}

@@ -17,7 +17,7 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        GameManager.monsterCount++;
+        GameManager.Instance.monsterCount++;
         MonsterAnimator = this.GetComponent<Animator>();
     }
 
@@ -60,7 +60,7 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Attack")
         {
             MonsterAnimator.SetTrigger("Damage");
-            MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamage;
+            MonsterHP -= collision.gameObject.GetComponent<Attack>().BaseAttackDamage;
 
             if (MonsterHP <= 0)
             {
@@ -78,17 +78,19 @@ public class Monster : MonoBehaviour
         isDie = true;
 
         MonsterAnimator.SetTrigger("Die");
-        GameManager.monsterCount--;
+        GameManager.Instance.monsterCount--;
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, 1.5f);
+        Invoke("CreateItem", 1.5f);
+        Destroy(gameObject, 1.55f);
     }
 
-    private void OnDestroy()
+    private void CreateItem()
     {
         int itemRandom = Random.Range(0, ItemObj.Length);
         if (itemRandom < ItemObj.Length)
         {
             Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
+        Destroy(gameObject);
     }
 }

@@ -194,12 +194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7becb44578fa2499639f68d590a08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpClip: {fileID: 0}
+  JumpClip: {fileID: 8300000, guid: 02c4f8007f0986e4597f899c097fdbf9, type: 3}
   Speed: 9
   JumpPower: 6
   AttackObj: {fileID: 6262277056364873038, guid: c8e438d279140164d844765f1cce0cc2, type: 3}
   AttackSpeed: 5
-  AttackClip: {fileID: 0}
+  AttackClip: {fileID: 8300000, guid: b23ebcf4061a4b24fa670d0c638a0144, type: 3}
 --- !u!82 &4459861894899548822
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3f638a47c81f2234ea88fcbc99f9fbd0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

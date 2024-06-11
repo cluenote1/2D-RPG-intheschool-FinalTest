@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -22,12 +24,14 @@ public class Character : MonoBehaviour
 
     public GameObject AttackObj;
     public float AttackSpeed = 3f;
+    public float AttackDamage = 5f;
     public AudioClip AttackClip;
 
     private bool justAttack, justJump;
+    private bool faceRight = true;
 
     private float originalSpeed; // 기존 속도를 저장할 변수 추가
-    private float attackPower; // 기본 공격력
+    private float attackSpeed; // 기본 공격력
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -98,27 +102,32 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right * Speed * Time.deltaTime);
             animator.SetBool("Move" , true);
+            if (!faceRight) Flip();
+            
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * Speed * Time.deltaTime);
             animator.SetBool("Move", true);
+            if (faceRight) Flip();
+            
         }
         else
         {
             animator.SetBool("Move", false);
         }
 
-        // 좌우 이동에 따른 반전
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            spriteRenderer.flipX = true;
-        }
     }
+
+    private void Flip()
+    {
+        faceRight = !faceRight;
+
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -175,7 +184,14 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
 
-            if (spriteRenderer.flipX)
+            if (gameObject.name == "Warrior(Clone)")
+            {
+                AttackObj.GetComponent<Collider2D>().enabled = true;
+                Invoke("SetAttackInactive", 0.5f);
+
+            }
+
+            if (!faceRight)
             {
                 GameObject obj = Instantiate(AttackObj, transform.position, Quaternion.Euler(0, 180f, 0));
                 obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left * AttackSpeed, ForceMode2D.Impulse);
@@ -190,23 +206,22 @@ public class Character : MonoBehaviour
         }
     }
 
+    private void SetAttackObjInactive()
+    {
+        AttackObj.GetComponent<Collider2D>().enabled = false;
+    }
+
     public void IncreaseSpeed()
     {
         Speed += originalSpeed * 0.5f;
     }
 
-    public void IncreaseAttack()
+    public void EatStrongAttackItem()
     {
-        attackPower += 5f;
+        AttackDamage += 10f;
     }
 
 
-    private void SetAttackObjInactive()
-    {
-        if (AttackObj != null && AttackObj.activeSelf) // AttackObj가 존재하고 활성화된 경우에만 실행
-        {
-            AttackObj.SetActive(false);
-        }
-    }
+    
     
 }

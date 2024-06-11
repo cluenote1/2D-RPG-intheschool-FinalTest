@@ -200,6 +200,7 @@ MonoBehaviour:
   JumpPower: 6
   AttackObj: {fileID: 5586953632751149675}
   AttackSpeed: 3
+  AttackDamage: 5
   AttackClip: {fileID: 8300000, guid: e9661e6fa54de1044b3c07457f647ebd, type: 3}
 --- !u!82 &2902795749256388556
 AudioSource:
@@ -315,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1079123633739162006
 Transform:
   m_ObjectHideFlags: 0
@@ -338,7 +339,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5586953632751149675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb8cd0f7ba21e44793139d09a411828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDamage: 5
+  BaseAttackDamage: 5
 --- !u!50 &9175753967894570819
 Rigidbody2D:
   serializedVersion: 4

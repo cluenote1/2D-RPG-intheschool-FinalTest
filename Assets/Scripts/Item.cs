@@ -27,7 +27,7 @@ public class Item : MonoBehaviour
             }
             else if (gameObject.tag == "StrongAttack")
             {
-                collision.gameObject.GetComponent<Character>().IncreaseAttack();
+                collision.gameObject.GetComponent<Character>().EatStrongAttackItem();
                 Destroy(gameObject);
             }
         }

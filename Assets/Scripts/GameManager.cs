@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string CharacterName;
+
+    public Define.Player SelectedPlayer;
     public string UserID;
 
     public float PlayerHP = 100f;
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int SpeedUp = 0;
     public int Coin = 0;
     public int didguswns = 0;
-    public static int monsterCount = 0;
+    public int monsterCount = 0;
     public int remainingMonsterCount;
 
     private UIManager uiManager;
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject SpawnPlayer(Transform spawnPos)
     {
-        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + CharacterName);
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + SelectedPlayer.ToString());
         GameObject player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
 
         return player;

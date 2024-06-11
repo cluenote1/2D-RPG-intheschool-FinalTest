@@ -11,7 +11,7 @@ TagManager:
   - Coin
   - didguswns
   - IShowSpeed
-  - DamageUP
+  - StrongAttack
   layers:
   - Default
   - TransparentFX
