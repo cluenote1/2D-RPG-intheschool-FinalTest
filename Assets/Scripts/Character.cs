@@ -102,7 +102,9 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right * Speed * Time.deltaTime);
             animator.SetBool("Move" , true);
+
             if (!faceRight) Flip();
+           
             
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
