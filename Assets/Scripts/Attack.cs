@@ -15,7 +15,8 @@ public class Attack : MonoBehaviour
 
     public void EatStrongAttackItem(float bonusDamage)
     {
-        BaseAttackDamage = BaseAttackDamage + strongAttackBonus;
+        strongAttackBonus += bonusDamage;
+        BaseAttackDamage += strongAttackBonus;
         Debug.Log("Warrior's attack increased to: " + BaseAttackDamage);
     }
 

@@ -1,28 +1,18 @@
 // UIManager.cs
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public Text killCountText;
-    public Text coinCountText;
-
-    private void Start()
-    {
-        InitializeUI();
-    }
+    public Text coinCountText;    
 
     public void InitializeUI()
     {
-        if (killCountText != null)
-        {
-            killCountText.text = ": ";
-        }
-        if (coinCountText != null)
-        {
-            coinCountText.text = ": ";
-        }
+        UpdateKillCountText(0);
+        UpdateCoinText(0);
     }
 
     public void UpdateKillCountText(int remainingMonsterCount)
@@ -33,11 +23,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateCoinText(int coinAmount)
+    public void UpdateCoinText(int coin)
     {
         if (coinCountText != null)
         {
-            coinCountText.text = ": " + coinAmount;
+            coin += coin;
+            Debug.Log("Updating coin text to " + coin);
+            coinCountText.text = ": " + coin;
+        }
+        else
+        {
+            Debug.LogError("Coin Text is not assigned in UIManager.");
         }
     }
+   
+    
+
+
 }

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int remainingMonsterCount;
 
     private UIManager uiManager;
+    private PlayerUI playerUI;
 
     private void Awake()
     {
@@ -24,10 +25,12 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (Instance != this)
+        else
         {
             Destroy(gameObject);
         }
+
+        
     }
 
     private void Start()
@@ -39,23 +42,38 @@ public class GameManager : MonoBehaviour
         {
             // 시작 시 UI 초기화
             uiManager.InitializeUI();
-            uiManager.UpdateCoinText(Coin);
+            
         }
+
+        playerUI = FindObjectOfType<PlayerUI>();
+        if (playerUI != null)
+        {
+            playerUI.UpdateCoinUI();
+        }
+
+        
     }
 
     // 코인 증가 메서드 추가
-    public void IncrementCoin(int amount)
+    
+    public void IncreamentCoin(int amount)
     {
-        Coin += amount; // 코인 증가
-        Debug.Log("Current Coin: " + Coin);
+        Coin += amount;
+        Debug.Log("current Coin: " + Coin);
 
         if (uiManager != null)
         {
             // UI 업데이트
             uiManager.UpdateCoinText(Coin);
+            Debug.Log("current Coin2: " + Coin);
+            // UI 업데이트 메서드 호출
+            if (playerUI != null)
+            {
+                playerUI.UpdateCoinUI();
+                Debug.Log("current Coin3: " + Coin);
+            }
         }
     }
-
     // 코인 감소 메서드 추가
 
 

@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
         {
             if (gameObject.tag == "Coin")
             {
-                GameManager.Instance.IncrementCoin(1);
+                GameManager.Instance.IncreamentCoin(1);
                 Debug.Log("Player Coin : " + GameManager.Instance.Coin);
                 Destroy(gameObject);
             }
@@ -27,7 +27,8 @@ public class Item : MonoBehaviour
             }
             else if (gameObject.tag == "StrongAttack")
             {
-                collision.gameObject.GetComponent<Character>().EatStrongAttackItem();
+                Debug.Log("StrongAttack item collided");
+                collision.gameObject.GetComponent<Character>().AttackObj.GetComponent<Attack>().EatStrongAttackItem(10f);
                 Destroy(gameObject);
             }
         }

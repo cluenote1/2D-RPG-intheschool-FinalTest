@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     public Text monsterCountText;
     public Text timerText;
     public Text coinText;
+    public Text SpeedText;
 
     private GameObject player;
     public GameObject spawnPos;
@@ -87,5 +88,10 @@ public class PlayerUI : MonoBehaviour
     public void UpdateCoinUI()
     {
         coinText.text = " : " + GameManager.Instance.Coin.ToString();
+    }
+
+    public void IShowSpeedUI()
+    {
+        SpeedText.text = "I Show Speed: " + GameManager.Instance.SpeedUp.ToString();
     }
 }
